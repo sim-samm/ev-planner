@@ -37,7 +37,7 @@ dist/
 *.temp
 
 # Generated document artifacts (from scripts/md2pdf.sh)
-docs/*.pdf
+pdfs/*.pdf
 *.aux
 *.fdb_latexmk
 *.fls
@@ -48,5 +48,5 @@ docs/*.pdf
 *.synctex.gz
 
 # Local reference checkouts (keep folder, ignore contents/symlinks)
-repo-references/*
-!repo-references/.gitkeep
+references/*
+!references/.gitkeep
