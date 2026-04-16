@@ -26,6 +26,11 @@ venv/
 env/
 ENV/
 
+# Environment variable files
+.env
+.env.*
+!.env.example
+
 # Build / distribution artifacts
 build/
 dist/
