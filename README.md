@@ -32,3 +32,4 @@ Prototyping phase. Working through incremental development stages defined in [ro
 - [Spec (v3)](docs/ev_planner_spec_v3.md) — What the system does
 - [Sub-Problems](docs/sub_problems.md) — How to build it
 - [Roadmap](docs/roadmap.md) — In what order
+- [Coding style](docs/coding_style.md) — Python conventions for this repo
