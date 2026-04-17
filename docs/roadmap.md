@@ -81,13 +81,53 @@ opponent_b = {
 
 ---
 
-## Stage 2: Add Macho Brace (sketch)
+## Stage 2: Add Macho Brace
 
-**Deliverable:** Extend `01_ev_basics.ipynb` or new `notebooks/02_items.ipynb`
+**Deliverable:** `held_items.ipynb`
 
-- Add `has_macho_brace` toggle and `macho_multiplier` to `ev_from_battle`.
-- Compare battles needed with vs. without for the same target.
-- **Proves:** Item logic works and visibly halves the battle count.
+Five micro-steps. Each is a notebook cell pair - markdown explanation above, code below.
+
+### 2a - Define held-item state
+
+Add simple held-item toggles and multipliers for the trainee.
+
+```python
+held_item_state = {
+    "has_macho_brace": True,
+    "macho_multiplier": 2,
+}
+```
+
+**Proves:** Item state is explicit and can be passed into battle math.
+
+### 2b - Extend `ev_from_battle` with item multiplier
+
+Apply Macho Brace to the EV yield output while keeping base behavior available.
+
+```python
+def ev_from_battle(opponents, held_item_state=None):
+    ...
+```
+
+**Proves:** EV arithmetic can incorporate held-item effects without breaking Stage 1 paths.
+
+### 2c - Verify EV gain deltas
+
+Run checkpoints that print EV gain with vs. without Macho Brace for the same opponent.
+
+**Proves:** Item multiplier is active and numerically correct at the function level.
+
+### 2d - Compare battles needed with vs. without item
+
+Use the same trainee + opponent input and print both battle counts.
+
+**Proves:** Item effect propagates from EV gain into planning output.
+
+### 2e - Show side-by-side plan rows
+
+Generate comparison rows for both states and print ordered output.
+
+**Proves:** Stage 2 produces decision-ready output and sets up Stage 3 (vitamin layering).
 
 ---
 
