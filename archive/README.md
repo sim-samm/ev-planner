@@ -1,12 +1,13 @@
-# Notebook archive
+# Archive
 
-When a stage notebook's logic has been extracted into Python modules and covered by tests, move the notebook here to keep the repo root tidy.
+Historical project artifacts live here once their active logic has been
+extracted into Python modules and tests.
 
-Suggested naming:
+Contents:
 
-- `ev_basics__stage1__archived.ipynb`
+- `notebooks/` keeps old exploratory notebooks for reference only.
+- `specs/` keeps older spec versions.
 
 Optional packaging:
 
-- Keep notebooks in git for readable diffs.
 - If you need a single-file handoff bundle, generate a `tar.gz` outside git (release artifact) rather than committing large binaries.

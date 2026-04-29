@@ -222,7 +222,7 @@ See [sub_problems.md](sub_problems.md) for the full breakdown, interfaces, and d
 
 ## 8. Future Considerations
 
-- **Notebook conversion:** Rewrite formulas and scenarios as a Jupyter notebook — markdown cells for explanation, code cells for computation, reusable functions importable from a shared module.
+- **Executable examples:** Keep formulas and scenarios represented by focused tests that exercise reusable modules.
 - **Full party optimization:** Extend from single-member training to planning an optimal route for all six party members simultaneously.
 - **Battler & Exp. Share holder orderings:** Optimize which party member battles and which holds Exp. Share at each step.
 

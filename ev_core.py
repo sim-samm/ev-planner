@@ -1,4 +1,4 @@
-"""Core EV math shared across notebooks.
+"""Core EV math shared across demos and tests.
 
 Stage 1 baseline only. New mechanics should add new concrete functions that
 compose these helpers rather than rewriting them.

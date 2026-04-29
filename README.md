@@ -14,8 +14,9 @@ docs/                   <- Project documentation
   sub_problems.md       <- Independent sub-problems and dependency graph
   roadmap.md            <- Development stages and deliverables
   thoughts.md           <- Scratch notes and future ideas
-  archive/              <- Previous spec versions (v1, v2)
   pdfs/                 <- Generated PDF artifacts
+tests/                  <- Unit tests for reusable Python modules
+archive/                <- Historical notebooks and previous specs
 references/             <- Optional local symlinks for dev-specific agent context
 ```
 
@@ -25,7 +26,13 @@ references/             <- Optional local symlinks for dev-specific agent contex
 
 ## Status
 
-Prototyping phase. Working through incremental development stages defined in [roadmap.md](docs/roadmap.md), starting with single-pokemon EV calculations and building toward full team optimization.
+Prototyping phase. Working through incremental development stages defined in [roadmap.md](docs/roadmap.md), starting with single-pokemon EV calculations and building toward full team optimization. Active work happens in Python modules and tests.
+
+## Running Checks
+
+```bash
+python3 -m unittest discover -s tests
+```
 
 ## Key Documents
 

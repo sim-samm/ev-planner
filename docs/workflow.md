@@ -1,21 +1,28 @@
-1. Fill in roadmap stage with sub sections
-  1. Base off of specification, sub-problems, and last stage
-2. Stub out jupyter notebook with markdown cells
-  1. Write out in English what each module should do
-  2. Include math formulas and expected numeric checkpoints where helpful
-3. Fill in with python code cells
-  1. Prefer small cells that mirror the markdown checkpoints
-4. Comment any thoughts / notes
-5. Refactor inside the notebook until checkpoints read cleanly
-6. Abstract into python files
-  1. Move stable, reusable logic into a small module (for example `ev_core.py`)
-  2. Keep notebooks as demos/spec surfaces; import from modules instead of redefining
-7. Add or update tests
-  1. Add `unittest` (or `pytest`) coverage for the module public API
-  2. Prefer adding new tests for new behavior; keep old tests as regression anchors
-8. Archive the stage notebook when its logic is fully represented by modules + tests
-  1. Move the notebook under `archive/` (keep `.ipynb` in git for readable history)
-  2. Optional: generate a `tar.gz` outside git for handoff bundles (avoid committing large binaries)
-9. Start the next stage notebook that imports the modules and repeats from step 2
+# Development Workflow
+
+Active development uses Python modules and unit tests. Notebooks are historical
+artifacts only.
+
+## Agent
+
+1. Fill in the roadmap stage with concrete subsections.
+   1. Base the stage on the current spec, sub-problems, and previous stage.
+   2. Include formulas and expected numeric checkpoints where helpful.
+2. Implement stable behavior in a small Python module.
+   1. Compose existing helpers instead of rewriting them.
+   2. Keep function inputs as simple dicts until a richer data model is needed.
+   3. Maintain useful TODOs when the current stage intentionally defers work.
+3. Add or update tests.
+   1. Use `unittest` coverage for the module public API.
+   2. Prefer adding new tests for new behavior; keep old tests as regression anchors.
+4. Update docs.
+   1. Keep roadmap stage status and deliverables accurate.
+   2. Update the spec only when domain rules or terminology change.
+
+## Human
+
+1. Review the roadmap stage and checkpoint expectations.
+2. Verify the module API reads cleanly.
+3. Run the tests, then add comments or concerns as needed.
 
 See also: [coding_style.md](coding_style.md)

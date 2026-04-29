@@ -2,15 +2,15 @@
 
 For domain rules and formulas see [ev_planner_spec_v3.md](ev_planner_spec_v3.md). For sub-problem breakdown and dependencies see [sub_problems.md](sub_problems.md).
 
-**Rule:** Each stage must be usable on its own and prove the next stage's prerequisite. Do not start a stage until the previous stage's notebook cells run cleanly. After completing a stage, revisit the next stage's sketch and flesh it out before coding.
+**Rule:** Each stage must be usable on its own and prove the next stage's prerequisite. A stage is complete when its reusable logic lives in Python modules and its public behavior is covered by tests. After completing a stage, revisit the next stage's sketch and flesh it out before coding.
 
 ---
 
 ## Stage 1: One Pokemon, One Stat, One Opponent
 
-**Deliverable:** `notebooks/01_ev_basics.ipynb`
+**Deliverable:** `ev_core.py` and `tests/test_ev_core.py`
 
-Five micro-steps. Each is a notebook cell pair — markdown explanation above, code below.
+Five micro-steps. Each should be reflected in reusable Python logic or tests.
 
 ### 1a — Define a trainee
 
@@ -83,9 +83,9 @@ opponent_b = {
 
 ## Stage 2: Add Macho Brace
 
-**Deliverable:** `held_items.ipynb`
+**Deliverable:** `ev_items.py` and `tests/test_ev_items.py`
 
-Five micro-steps. Each is a notebook cell pair - markdown explanation above, code below.
+Five micro-steps. Each should preserve the Stage 1 API while adding held-item behavior through new concrete functions.
 
 ### 2a - Define held-item state
 
@@ -93,19 +93,20 @@ Add simple held-item toggles and multipliers for the trainee.
 
 ```python
 held_item_state = {
-    "has_macho_brace": True,
-    "macho_multiplier": 2,
+    "item": "Macho Brace",
+    "ev_multiplier": 2,
+    "speed_multiplier": 0.5,
 }
 ```
 
-**Proves:** Item state is explicit and can be passed into battle math.
+**Proves:** Item state is explicit and EV-specific metadata can be passed into battle math.
 
-### 2b - Extend `ev_from_battle` with item multiplier
+### 2b - Add held-item EV helpers
 
 Apply Macho Brace to the EV yield output while keeping base behavior available.
 
 ```python
-def ev_from_battle(opponents, held_item_state=None):
+def ev_from_battle_with_held_item(opponents, held_item):
     ...
 ```
 
@@ -133,7 +134,7 @@ Generate comparison rows for both states and print ordered output.
 
 ## Stage 3: Add Vitamins (sketch)
 
-**Deliverable:** Extend notebook
+**Deliverable:** Add module helpers and tests
 
 - Implement vitamin pre-loading: given a wallet, buy N vitamins first, battle the remainder.
 - Enforce the 0–100 stat cap from Spec Section 5.
@@ -143,7 +144,7 @@ Generate comparison rows for both states and print ordered output.
 
 ## Stage 4: Full EV Spread for One Pokemon (sketch)
 
-**Deliverable:** Extend notebook
+**Deliverable:** Add module helpers and tests
 
 - Target multiple stats (e.g. 252 Atk / 252 Spe / 4 HP).
 - Different opponent per stat.
@@ -154,7 +155,7 @@ Generate comparison rows for both states and print ordered output.
 
 ## Stage 5: Compare and Rank Battle Options (sketch)
 
-**Deliverable:** Extend notebook, first touch of game data
+**Deliverable:** Add module helpers, tests, and first touch of game data
 
 - Introduce a small data set (5–10 opponents for one route).
 - Rank by `ev_per_move`.
@@ -164,7 +165,7 @@ Generate comparison rows for both states and print ordered output.
 
 ## Stage 6: Exp. Share + Sweeper (sketch)
 
-**Deliverable:** Extend notebook
+**Deliverable:** Add module helpers and tests
 
 - Two pokemon: sweeper (battler) + trainee (Exp. Share holder).
 - Implement `battle_is_useful` three-channel filter.
